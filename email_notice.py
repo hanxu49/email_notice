@@ -1,4 +1,4 @@
-import csv
+import os
 import time
 import datetime
 from email.header import Header
@@ -9,8 +9,8 @@ from email.mime.multipart import MIMEMultipart
 
 if os.environ.get("client_password"):
     pwd = os.environ["client_password"]
-    sender_qq = os.environ["sender"]
-    receiver = os.environ["receiver"].split(';')
+    sender_qq = os.environ.get("sender_qq")
+    receiver = os.environ.get("receiver").split(';')
 
     host_server = 'smtp.qq.com' 
     mail_title = '定期邮件发送' 
